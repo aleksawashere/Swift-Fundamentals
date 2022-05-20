@@ -199,3 +199,78 @@ managerVariable.role = "Manager Role"
 managerVariable.doWork()
 managerVariable.teamSize = 15
 print("Name: \(managerVariable.name), Salary: \(managerVariable.salary), Role: \(managerVariable.role), Team Size: \(managerVariable.teamSize)")
+
+//INITIALIZERS
+
+class Person{
+    var name = "" //this is self.name later
+    
+    init(){
+        name = "John" //if nothing is sent through parameter
+    }
+    
+    init(_ name: String){
+        self.name = name //uses the parameter sent through initialization of object
+    }
+}
+
+var person1 = Person()
+print(person1.name)
+
+var person2 = Person("Aleksa")
+print(person2.name)
+
+class Worker:Person{
+    var salary = 0
+    var role = ""
+    
+    override init(_ name: String){
+        super.init(name) // This is calling the init(_ name: String) function of the Person class
+        self.role = "Default" // Additional init code
+    }
+}
+
+var worker1 = Worker("Luke")
+print("Name: \(worker1.name), Role: \(worker1.role)")
+
+//OPTIONALS
+//used to declare a variable as "empty"
+
+var x: Int? = nil //none of usual data types allow nil as a valid value, so we have to add "?" in the end of data types, so they can allow nil and other valid values for certain type => OPTIONAL TYPES
+
+class Random{
+    func suprise()-> Int{
+        return Int.random(in: 1...1000)
+    }
+}
+
+let suprise = Random()
+print(suprise.suprise())
+
+let suprise2: Random? = nil //optional variable Random
+if suprise2 != nil {
+    print(suprise2!.suprise()) //unwrapping with "!" means that if our variable isn't null, we will give access to anything that's in it
+}
+
+let suprise3: Random? = Random()
+if suprise3 != nil {
+    print(suprise3!.suprise())
+}
+
+//OPTIONAL BINDING
+
+if let actualSuprise = suprise3{
+    print(actualSuprise.suprise())
+} //if "suprise3" is nil, code won't be executed, otherwise Swift will automatically unwrap "suprise3" and assign its contents to constant "actualSuprise"
+
+//OPTIONAL CHAINING
+
+let suprise4: Random? = Random()
+
+suprise4?.suprise() //"?" works same as "!", the only difference is if the optional turns out to be nil, the code will not crash and the entire line is ignored (that's why we don't need if statement)
+
+//OPTIONALS DEFAULT VALUE
+
+var opt: String? //opt is automatically given a value of nil
+var opt2: String! //implicitly unwrapped optional - this is a normal optional, but when you use it in code, Swift automatically unwraps it for you, so you don’t need to use extra “?” or “!”s to get at its contents
+
