@@ -1,4 +1,5 @@
 import UIKit
+import Darwin
 
 //VARIABLES - VAR
 
@@ -273,4 +274,52 @@ suprise4?.suprise() //"?" works same as "!", the only difference is if the optio
 
 var opt: String? //opt is automatically given a value of nil
 var opt2: String! //implicitly unwrapped optional - this is a normal optional, but when you use it in code, Swift automatically unwraps it for you, so you don’t need to use extra “?” or “!”s to get at its contents
+
+//PROPERTIES
+
+class Zoo{
+    var numberOfAnimals = 0
+    var cost: Int{
+        //this is a computed property - when it's accessed, the code in here will run
+        return numberOfAnimals*500
+    }
+}
+
+var blueZoo = Zoo()
+blueZoo.numberOfAnimals = 10
+print("Number of animals: \(blueZoo.numberOfAnimals), Cost: \(blueZoo.cost)")
+
+//INITIALIZERS - ADDITIONAL
+
+class Persona{
+    var name: String
+    var netWorth: Int?
+    var gender: String!
+    
+    //designated initializer
+    init() {
+        name = "None"
+    }
+    
+    //convenience initializer
+    convenience init(_ gender: String, netWorth: Int){
+        //call the designated initializer to ensure that the object is ready to go
+        
+        self.init()
+        
+        //set any other properties or custom code to initialize for this scenario
+        
+        self.gender = gender
+        self.netWorth = netWorth
+    }
+}
+
+let persona1 = Persona()
+print(persona1.name)
+
+let persona2 = Persona("Male", netWorth: 109283120938)
+let persona3 = Persona("Female", netWorth: 998373628338)
+
+print(persona2.netWorth!) //"!" for unwrapping optional
+
 
