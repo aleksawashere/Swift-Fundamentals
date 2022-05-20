@@ -101,7 +101,6 @@ func addTwoNumbers(){
     let c = a + b
     print(c)
 }
-
 addTwoNumbers()
 //print(c) - scope of variable c is only inside function brackets
 
@@ -111,7 +110,6 @@ func addTwoNumbers2()-> Int{
     let z = a + b
     return z
 }
-
 let add = addTwoNumbers2()
 print(add)
 
@@ -141,3 +139,63 @@ func addTwoNumbers(_ number1: Int, _ number2: Int) -> Int {
 }
 let add4 = addTwoNumbers(5, 5)
 print(add4)
+
+//CLASSES
+
+class Employee{
+    var name = ""
+    var salary = 0
+    var role = ""
+    
+    func doWork(){
+        print("Doing work")
+        salary += 1000
+    }
+}
+
+var classVariable = Employee()
+print("Name: \(classVariable.name), Salary: \(classVariable.salary), Role: \(classVariable.role)")
+
+classVariable.name = "Aleksa"
+classVariable.salary = 80000
+classVariable.role = "UI/UX Designer"
+
+print("Name: \(classVariable.name), Salary: \(classVariable.salary), Role: \(classVariable.role)")
+
+classVariable.doWork()
+classVariable.doWork()
+classVariable.doWork()
+
+print("Name: \(classVariable.name), Salary: \(classVariable.salary), Role: \(classVariable.role)")
+
+
+var classVariable2 = Employee()
+classVariable2.name = "Mark"
+classVariable2.salary = 130000
+classVariable2.role = "Manager"
+classVariable2.doWork()
+
+print("Name: \(classVariable2.name), Salary: \(classVariable2.salary), Role: \(classVariable2.role)")
+
+//SUBCLASSING
+
+class Manager:Employee{ // Manager class subclasses Employee class
+    // Manager automatically inherit all properties and methods of Employee class
+    // But also can implement new ones:
+    
+    var teamSize = 0
+    
+    override func doWork() { //modifying existing functionality from its parent class
+        super.doWork() //call doWork() from parent class (Employee is the superclass of Manager)
+        print("I'm managing people")
+        salary += 5000
+    }
+}
+
+var managerVariable = Manager()
+managerVariable.name = "John"
+managerVariable.salary = 150000
+managerVariable.role = "Manager Role"
+managerVariable.doWork()
+managerVariable.teamSize = 15
+print("Name: \(managerVariable.name), Salary: \(managerVariable.salary), Role: \(managerVariable.role), Team Size: \(managerVariable.teamSize)")
