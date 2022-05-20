@@ -322,4 +322,57 @@ let persona3 = Persona("Female", netWorth: 998373628338)
 
 print(persona2.netWorth!) //"!" for unwrapping optional
 
+//ARRAYS
 
+var myArray = ["Dog", "Cat", "Bird"]
+print(myArray[0])
+print(myArray[1])
+print(myArray[2])
+
+print()
+
+for counter in 0...2{
+    print(myArray[counter])
+}
+
+print()
+
+for counter in 0...myArray.count-1{
+    myArray[counter] = "My " + myArray[counter]
+    print(myArray[counter])
+}
+
+print()
+
+for item in myArray{
+    print(item)
+}
+
+print()
+
+//empty string declaration
+var emptyArray: [String] = []
+var emptyArray2 = [String]()
+
+myArray.append("Racoon") //add at the end
+myArray.insert("Frog", at: 0)//add at some position
+myArray += ["Frog","Bear"]//append arrays onto arrays
+
+for item in myArray{
+    print(item)
+}
+
+print()
+
+myArray.remove(at: 0)
+myArray.removeFirst()
+myArray.removeLast()
+myArray.removeFirst(3)
+
+for item in myArray{
+    print(item)
+}
+
+//myArray.removeAll()
+
+var index = myArray.firstIndex(of: "Frog")//last index of the item
