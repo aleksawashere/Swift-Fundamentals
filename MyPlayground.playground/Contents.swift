@@ -95,6 +95,49 @@ repeat{
 
 
 //FUNCTIONS
-func name(){
-    
+func addTwoNumbers(){
+    let a = 1
+    let b = 2
+    let c = a + b
+    print(c)
 }
+
+addTwoNumbers()
+//print(c) - scope of variable c is only inside function brackets
+
+func addTwoNumbers2()-> Int{
+    let a = 1
+    let b = 3
+    let z = a + b
+    return z
+}
+
+let add = addTwoNumbers2()
+print(add)
+
+func addTwoNumbers(number1: Int, number2: Int)-> Int{
+    let a = number1
+    let b = number2
+    let c = a + b
+    return c
+}
+let add2 = addTwoNumbers(number1: 5, number2: 15)
+print(add2)
+
+func addTwoNumbers(using number1: Int, and number2: Int) -> Int {
+    let a = number1
+    let b = number2
+    let c = a + b
+    return c
+}
+let add3 = addTwoNumbers(using: 5, and: 5)
+print(add3)
+
+func addTwoNumbers(_ number1: Int, _ number2: Int) -> Int {
+    let a = number1
+    let b = number2
+    let c = a + b
+    return c
+}
+let add4 = addTwoNumbers(5, 5)
+print(add4)
